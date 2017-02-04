@@ -1,0 +1,32 @@
+<html>
+
+<head> 
+
+</head>
+
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="javascript/privateinpublic.js"></script>
+
+<script>
+function changetextarea(){
+var contents = parse(document.getElementById('target').innerHTML,"hardcoded")
+document.getElementById('target').innerHTML=contents
+
+}
+
+
+</script>
+
+<textarea id="target" cols=100 rows=30> 
+
+Start with this [test text]!
+
+</textarea>
+
+<button onclick="changetextarea();">Press to change</button>
+
+</body>
+
+</html>
+
