@@ -10,8 +10,9 @@
 
 <script>
 function changetextarea(){
-var contents = parse(document.getElementById('target').value,document.getElementById('passcode').value)
-document.getElementById('target').value=contents
+var contents = parse(document.getElementById('target').value,document.getElementById('passcode').value);
+document.getElementById('target').value=contents;
+htmlreplace(document.body, document.getElementById('passcode').value);
 
 }
 
@@ -27,6 +28,12 @@ Start with this [test text]!
 </textarea>
 
 <button onclick="changetextarea();">Press to change</button>
+
+
+
+<br>
+<br>
+Also think about [this].
 
 </body>
 

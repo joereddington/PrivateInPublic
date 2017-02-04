@@ -10,12 +10,9 @@ function decrypt(ciphertext, passcode) {
     return plaintext;
 }
 
-
-
 function parse(input, passcode) {
     passcode = passcode || "hardcoded";
     inputArray = input.split(/\[|\]/);
-    console.log(inputArray);
     for (var i = 1; i < inputArray.length; i += 2) {
         if (inputArray[i].startsWith("e:")) {
             inputArray[i] = "[" + decrypt(inputArray[i].slice(2), passcode) + "]";
@@ -24,6 +21,18 @@ function parse(input, passcode) {
         }
     }
     return inputArray.join("")
-
-
 }
+
+function htmlreplace(element,passcode) { //modified from http://stackoverflow.com/a/1175796/170243
+    passcode = passcode || "hardcoded";
+    if (!element) element = document.body;    
+    var nodes = element.childNodes;
+    for (var n=0; n<nodes.length; n++) {
+        if (nodes[n].nodeType == Node.TEXT_NODE) {
+            nodes[n].textContent = parse(nodes[n].textContent,passcode);
+        } else {
+            htmlreplace(nodes[n],passcode);
+        }
+    }
+}
+
