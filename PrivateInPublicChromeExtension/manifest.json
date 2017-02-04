@@ -13,7 +13,7 @@
     },
  "content_scripts": [
     {
-   "matches": ["*://*.reddit.com/*"],
+   "matches": ["<all_urls>"],
       "js": ["privateinpublic.js", "aes.js"]
     }
   ],
