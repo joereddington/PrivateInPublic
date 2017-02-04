@@ -1,4 +1,6 @@
-function encrypt(input){
-return CryptoJS.AES.encrypt(input, "hardcoded").toString();
+
+function encrypt(input, passcode){
+passcode=passcode || "hardcoded"
+return CryptoJS.AES.encrypt(input,passcode).toString();
 }
 

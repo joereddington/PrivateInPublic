@@ -21,4 +21,12 @@ describe('PublicInPrivate', function() {
         expect(plaintext).toBe("Test String");
     });
 
+   it('Can the encrpyt function encrypt some text with a passcode as argument', function() {
+	var ciphertext=encrypt("Test String","passcode")
+
+	// Decrypt from https://www.npmjs.com/package/crypto-js
+	var bytes  = CryptoJS.AES.decrypt(ciphertext, 'passcode');
+	var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+        expect(plaintext).toBe("Test String");
+    });
 });
