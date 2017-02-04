@@ -10,13 +10,15 @@
 
 <script>
 function changetextarea(){
-var contents = parse(document.getElementById('target').value,"hardcoded")
+var contents = parse(document.getElementById('target').value,document.getElementById('passcode').value)
 document.getElementById('target').value=contents
 
 }
 
 
 </script>
+
+Passcode: <input type="text" id="passcode"><br>
 
 <textarea id="target" cols=100 rows=30> 
 
