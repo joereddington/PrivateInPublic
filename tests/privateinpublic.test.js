@@ -47,6 +47,29 @@ describe('PublicInPrivate', function() {
         expect(ciphertext).toBe("Test [e:siht fo trap sihT] String");
     });
 
+
+  it('leaves strings with NO marker alone', function() {
+   spyOn(window, "encrypt").and.callFake(function(string, passcode) {
+      return string.split("").reverse().join("");//from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
+    });
+	var ciphertext=parse("Test String","passcode")
+        expect(ciphertext).toBe("Test String");
+    });
+
+
+
+  it('deals with strings that start with a secret', function() {
+   spyOn(window, "encrypt").and.callFake(function(string, passcode) {
+      return string.split("").reverse().join("");//from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
+    });
+	var ciphertext=parse("[we have a ] Test String","passcode")
+        expect(ciphertext).toBe("[e: a evah ew] Test String");
+    });
+
+
+
+
+
 // next test should replace only the text if you *start* with a secret
 
 });
