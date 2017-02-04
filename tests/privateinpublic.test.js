@@ -29,4 +29,13 @@ describe('PublicInPrivate', function() {
 	var plaintext = bytes.toString(CryptoJS.enc.Utf8);
         expect(plaintext).toBe("Test String");
     });
+
+   it('Checking that Spy.callFake does what I want...', function() {
+   spyOn(window, "encrypt").and.callFake(function(string, passcode) {
+      return string.split("").reverse().join("");//from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
+    });
+	var ciphertext=encrypt("Test String","passcode")
+        expect(ciphertext).toBe("gnirtS tseT");
+    });
+
 });
