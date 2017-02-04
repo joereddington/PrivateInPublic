@@ -76,6 +76,17 @@ describe('PublicInPrivate', function() {
     });
 
 
+  it('correctly decrpt text', function() {
+   spyOn(window, "encrypt").and.callFake(function(string, passcode) {
+      return string.split("").reverse().join("");//from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
+    });
+   spyOn(window, "decrypt").and.callFake(function(string, passcode) {
+      return string.split("").reverse().join("");//from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
+    });
+	var ciphertext=parse("[e: a evah ew] Test [e:tset gnizama na] String","passcode")
+        expect(ciphertext).toBe("[we have a ] Test [an amazing test] String");
+    });
+
 
 
 
