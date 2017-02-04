@@ -90,7 +90,13 @@ describe('PublicInPrivate', function() {
 
 
 
+  it('correctly replaces several times in a string without spy', function() {
+	starttext="[we have a ] Test [an amazing test] String"
+	var ciphertext=parse(starttext,"hardcoded")
+	var plaintext=parse(ciphertext)
+        expect(plaintext).toBe(starttext);
+    });
 
-// next test should replace only the text if you *start* with a secret
+
 
 });

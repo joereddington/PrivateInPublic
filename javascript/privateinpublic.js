@@ -4,10 +4,11 @@ passcode=passcode || "hardcoded"
 return CryptoJS.AES.encrypt(input,passcode).toString();
 }
 
-function decrypt(input, passcode){
+function decrypt(ciphertext, passcode){
 passcode=passcode || "hardcoded"
-return "hello" 
-
+	var bytes  = CryptoJS.AES.decrypt(ciphertext, passcode);
+	var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+return plaintext
 }
 
 
@@ -31,6 +32,7 @@ inputArray[i]="[e:"+encrypt(inputArray[i],passcode)+"]"
 }
 }
 
+console.log("Returning: "+inputArray.join(""))
 
 return inputArray.join("")
 
