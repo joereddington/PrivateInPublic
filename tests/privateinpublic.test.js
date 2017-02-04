@@ -57,7 +57,6 @@ describe('PublicInPrivate', function() {
     });
 
 
-
   it('deals with strings that start with a secret', function() {
    spyOn(window, "encrypt").and.callFake(function(string, passcode) {
       return string.split("").reverse().join("");//from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
@@ -65,6 +64,17 @@ describe('PublicInPrivate', function() {
 	var ciphertext=parse("[we have a ] Test String","passcode")
         expect(ciphertext).toBe("[e: a evah ew] Test String");
     });
+
+
+
+  it('correctly replaces several times in a string', function() {
+   spyOn(window, "encrypt").and.callFake(function(string, passcode) {
+      return string.split("").reverse().join("");//from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
+    });
+	var ciphertext=parse("[we have a ] Test [an amazing test] String","passcode")
+        expect(ciphertext).toBe("[e: a evah ew] Test [e:tset gnizama na] String");
+    });
+
 
 
 
