@@ -2,7 +2,7 @@
 
 Javascript designed to encrypt text between tags. 
 
-This is a bookmarklet that allows you to encrypt small sections of the code you write into webpages.  It will convert: 
+This is a bookmarklet that allows you to encrypt small sections of the content you write into webpages.  It will convert: 
 
 "I like [postmen]" into 
 
