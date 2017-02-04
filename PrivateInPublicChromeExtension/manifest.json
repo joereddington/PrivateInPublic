@@ -1,0 +1,25 @@
+{
+  "name": "Private in Public",
+  "version": "1.0",
+  "description": "Private in Public allows you to encrypt small sections of the content you write into webpages.",
+  "manifest_version" : 2,
+  "homepage_url": "https://github.com/joereddington/PrivateInPublic",
+  "browser_action": {
+    "default_icon": "secret.png"
+  },
+  "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+ "content_scripts": [
+    {
+   "matches": ["*://*.reddit.com/*"],
+      "js": ["privateinpublic.js", "aes.js"]
+    }
+  ],
+"permissions": [
+        "tabs",
+        "http://*/*",
+        "https://*/*"
+    ]
+}
