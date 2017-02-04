@@ -12,6 +12,7 @@ function decrypt(ciphertext, passcode) {
 
 function parse(input, passcode) {
     passcode = passcode || "hardcoded";
+    console.log("in parse: "+input)
     inputArray = input.split(/\[|\]/);
     for (var i = 1; i < inputArray.length; i += 2) {
         if (inputArray[i].startsWith("e:")) {
@@ -35,4 +36,21 @@ function htmlreplace(element,passcode) { //modified from http://stackoverflow.co
         }
     }
 }
+
+
+	function changeall(){
+		var inputsArray = document.getElementsByTagName( 'textarea' )
+		for ( i = 0; i < inputsArray.length; i++ )
+		{ 
+			console.log("in loop")
+			console.log(inputsArray[i].type)
+			if ( inputsArray[i].type == 'textarea' )
+			{
+				var contents = parse(inputsArray[i].value, document.getElementById('passcode').value);
+				inputsArray[i].value = contents;
+
+			}
+		}
+		htmlreplace(document.body, document.getElementById('passcode').value);
+	}
 
