@@ -12,16 +12,17 @@ When you are viewing a page with encrypted content, the bookmarklet will let you
 
 Here's some screenshots: 
 # Demos
-Writing: 
+
+## Writing: 
 ![screen shot 2017-02-04 at 19 34 04](https://cloud.githubusercontent.com/assets/4369547/22621165/b89bbbf8-eb14-11e6-836a-6e5c048dbdda.png)
 
-Activated: 
+## Activated: 
 ![screen shot 2017-02-04 at 20 00 45](https://cloud.githubusercontent.com/assets/4369547/22621166/b89c4582-eb14-11e6-8f31-3f8b914f9040.png)
 
-Submited: 
+## Submited: 
 ![screen shot 2017-02-04 at 20 17 50](https://cloud.githubusercontent.com/assets/4369547/22621251/2444d1ee-eb17-11e6-8b51-24cb552a76a8.png)
 
-Activated again.
+## Activated again.
 ![screen shot 2017-02-04 at 20 17 39](https://cloud.githubusercontent.com/assets/4369547/22621250/2443e61c-eb17-11e6-883e-b5d79dc8070b.png)
 
 
