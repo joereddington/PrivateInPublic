@@ -44,10 +44,9 @@ describe('PublicInPrivate', function() {
       return string.split("").reverse().join("");//from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
     });
 	var ciphertext=parse("Test [This part of this] String","passcode")
-        expect(ciphertext).toBe("Test [siht fo trap sihT] String");
+        expect(ciphertext).toBe("Test [e:siht fo trap sihT] String");
     });
 
-
-
+// next test should replace only the text if you *start* with a secret
 
 });
