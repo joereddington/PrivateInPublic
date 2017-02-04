@@ -18,7 +18,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'javascript/*.js',
-      'tests/*.js'
+      'tests/*.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js'
     ],
 
 
