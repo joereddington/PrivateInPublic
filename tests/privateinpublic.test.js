@@ -95,5 +95,12 @@ describe('PublicInPrivate', function() {
     });
 
 
+    it('it ignores standard markdown hard', function() {
+        var starttext = "- [ ] is a check box for [this](http://link.com) Test [d:an amazing test] String"
+        var ciphertext = parse(starttext, "hardcoded")
+	console.log(ciphertext)
+        var plaintext = parse(ciphertext)
+        expect(plaintext).toBe(starttext);
+    });
 
 });
