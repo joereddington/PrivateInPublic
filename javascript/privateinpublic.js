@@ -15,9 +15,11 @@ function parse(input, passcode) {
     inputArray = input.split(/\[|\]/);
     for (var i = 1; i < inputArray.length; i += 2) {
         if (inputArray[i].startsWith("e:")) {
-            inputArray[i] = "[" + decrypt(inputArray[i].slice(2), passcode) + "]";
+            inputArray[i] = "[d:" + decrypt(inputArray[i].slice(2), passcode) + "]";
+        } else if (inputArray[i].startsWith("d:")) {
+            inputArray[i] = "[e:" + encrypt(inputArray[i].slice(2), passcode) + "]";
         } else {
-            inputArray[i] = "[e:" + encrypt(inputArray[i], passcode) + "]";
+// This should be the sort of thing we miss out, let's add a test for that. 
         }
     }
     return inputArray.join("")
