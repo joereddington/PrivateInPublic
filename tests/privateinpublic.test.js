@@ -43,7 +43,7 @@ describe('PublicInPrivate', function() {
         spyOn(window, "encrypt").and.callFake(function(string, passcode) {
             return string.split("").reverse().join(""); //from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
         });
-        var ciphertext = parse("Test [This part of this] String", "passcode")
+        var ciphertext = parse("Test [d:This part of this] String", "passcode")
         expect(ciphertext).toBe("Test [e:siht fo trap sihT] String");
     });
 
@@ -61,7 +61,7 @@ describe('PublicInPrivate', function() {
         spyOn(window, "encrypt").and.callFake(function(string, passcode) {
             return string.split("").reverse().join(""); //from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
         });
-        var ciphertext = parse("[we have a ] Test String", "passcode")
+        var ciphertext = parse("[d:we have a ] Test String", "passcode")
         expect(ciphertext).toBe("[e: a evah ew] Test String");
     });
 
@@ -71,7 +71,7 @@ describe('PublicInPrivate', function() {
         spyOn(window, "encrypt").and.callFake(function(string, passcode) {
             return string.split("").reverse().join(""); //from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
         });
-        var ciphertext = parse("[we have a ] Test [an amazing test] String", "passcode")
+        var ciphertext = parse("[d:we have a ] Test [d:an amazing test] String", "passcode")
         expect(ciphertext).toBe("[e: a evah ew] Test [e:tset gnizama na] String");
     });
 
@@ -84,11 +84,11 @@ describe('PublicInPrivate', function() {
             return string.split("").reverse().join(""); //from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
         });
         var ciphertext = parse("[e: a evah ew] Test [e:tset gnizama na] String", "passcode")
-        expect(ciphertext).toBe("[we have a ] Test [an amazing test] String");
+        expect(ciphertext).toBe("[d:we have a ] Test [d:an amazing test] String");
     });
 
     it('correctly replaces several times in a string without spy', function() {
-        starttext = "[we have a ] Test [an amazing test] String"
+        starttext = "[d:we have a ] Test [d:an amazing test] String"
         var ciphertext = parse(starttext, "hardcoded")
         var plaintext = parse(ciphertext)
         expect(plaintext).toBe(starttext);
