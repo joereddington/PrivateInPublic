@@ -103,4 +103,22 @@ describe('PublicInPrivate', function() {
         expect(plaintext).toBe(starttext);
     });
 
+
+ it('it ignores text without the trigger functiosn', function() {
+        var starttext = "The quick brown fox jumps"
+        var ciphertext = parse(starttext, "hardcoded")
+	console.log(ciphertext)
+        expect(ciphertext).toBe(starttext);
+    });
+
+
+it('looking at nested functions', function() {
+        var starttext = "The [[ quick ]] brown fox jumps"
+        var ciphertext = parse(starttext, "hardcoded")
+	console.log(ciphertext)
+        expect(ciphertext).toBe(starttext);
+    });
+
+
+
 });
