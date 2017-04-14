@@ -43,8 +43,8 @@ describe('PublicInPrivate', function() {
         spyOn(window, "encrypt").and.callFake(function(string, passcode) {
             return string.split("").reverse().join(""); //from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
         });
-        var ciphertext = parse("Test [d:This part of this] String", "passcode")
-        expect(ciphertext).toBe("Test [e:siht fo trap sihT] String");
+        var ciphertext = parse("Test §d:This part of this§ String", "passcode")
+        expect(ciphertext).toBe("Test §e:siht fo trap sihT§ String");
     });
 
 
@@ -61,8 +61,8 @@ describe('PublicInPrivate', function() {
         spyOn(window, "encrypt").and.callFake(function(string, passcode) {
             return string.split("").reverse().join(""); //from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
         });
-        var ciphertext = parse("[d:we have a ] Test String", "passcode")
-        expect(ciphertext).toBe("[e: a evah ew] Test String");
+        var ciphertext = parse("§d:we have a § Test String", "passcode")
+        expect(ciphertext).toBe("§e: a evah ew§ Test String");
     });
 
 
@@ -71,8 +71,8 @@ describe('PublicInPrivate', function() {
         spyOn(window, "encrypt").and.callFake(function(string, passcode) {
             return string.split("").reverse().join(""); //from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
         });
-        var ciphertext = parse("[d:we have a ] Test [d:an amazing test] String", "passcode")
-        expect(ciphertext).toBe("[e: a evah ew] Test [e:tset gnizama na] String");
+        var ciphertext = parse("§d:we have a § Test §d:an amazing test§ String", "passcode")
+        expect(ciphertext).toBe("§e: a evah ew§ Test §e:tset gnizama na§ String");
     });
 
 
@@ -83,12 +83,12 @@ describe('PublicInPrivate', function() {
         spyOn(window, "decrypt").and.callFake(function(string, passcode) {
             return string.split("").reverse().join(""); //from https://medium.freecodecamp.com/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb#.z8u4jebnx
         });
-        var ciphertext = parse("[e: a evah ew] Test [e:tset gnizama na] String", "passcode")
-        expect(ciphertext).toBe("[d:we have a ] Test [d:an amazing test] String");
+        var ciphertext = parse("§e: a evah ew§ Test §e:tset gnizama na§ String", "passcode")
+        expect(ciphertext).toBe("§d:we have a § Test §d:an amazing test§ String");
     });
 
     it('correctly replaces several times in a string without spy', function() {
-        starttext = "[d:we have a ] Test [d:an amazing test] String"
+        starttext = "§d:we have a § Test §d:an amazing test§ String"
         var ciphertext = parse(starttext, "hardcoded")
         var plaintext = parse(ciphertext)
         expect(plaintext).toBe(starttext);
@@ -96,7 +96,7 @@ describe('PublicInPrivate', function() {
 
 
     it('it ignores standard markdown hard', function() {
-        var starttext = "- [ ] is a check box for [this](http://link.com) Test [d:an amazing test] String"
+        var starttext = "- § § is a check box for §this§(http://link.com) Test §d:an amazing test§ String"
         var ciphertext = parse(starttext, "hardcoded")
 	console.log(ciphertext)
         var plaintext = parse(ciphertext)
@@ -113,7 +113,7 @@ describe('PublicInPrivate', function() {
 
 
 it('looking at nested functions', function() {
-        var starttext = "The [[ quick ]] brown fox jumps"
+        var starttext = "The §§ quick §§ brown fox jumps"
         var ciphertext = parse(starttext, "hardcoded")
 	console.log(ciphertext)
         expect(ciphertext).toBe(starttext);
