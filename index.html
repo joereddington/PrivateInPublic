@@ -6,20 +6,20 @@
 
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-    <script src="javascript/privateinpublic.js"></script>
+    <script src="PrivateInPublicChromeExtension/privateinpublic.js"></script>
 
 
     Passcode: <input type="text" id="passcode"><br>
 
     <textarea id="target" cols=100 rows=30> 
 
-Start with this [test text]!
+Start with this §d:test text§!
 
 </textarea><br><br><br>
 
     <textarea cols=100 rows=30> 
 
-End with this [right here]!
+End with this §d:right here§!
 
 </textarea>
     <button onclick="changeall(document.getElementById('passcode').value);">Press to change</button>
@@ -27,7 +27,7 @@ End with this [right here]!
 
 
     <br>
-    <br> Also think about [this].
+    <br> Also think about §d:this§.
 
 </body>
 

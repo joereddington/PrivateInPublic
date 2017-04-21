@@ -53,10 +53,16 @@ function changeall(passcode) {
     htmlreplace(document.body, passcode);
 }
 
- chrome.storage.sync.get({
+try{
+chrome.storage.sync.get({
     passcode: "changeme"
   }, function(items) {
      passcode= items.passcode;
      changeall(passcode)
   });
+
+}
+catch (err) {
+console.log("The chrome storage sync didn't load JR")
+}
 
