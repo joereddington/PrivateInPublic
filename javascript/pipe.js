@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
 
-var fs = require('fs');
-// file is included here:
-eval(fs.readFileSync('config.js')+'');
-eval(fs.readFileSync(aes_loc)+'');
-eval(fs.readFileSync(main_loc)+'');
 
+var fs = require('fs');
+var path = require('path');
+eval(fs.readFileSync(path.resolve(__dirname, 'aes.js'))+'')
+eval(fs.readFileSync(path.resolve(__dirname, 'privateinpublic.js'))+'')
+
+console.log(path.resolve(__dirname, 'privateinpublic.js'));
 console.log('hello world');
 
 

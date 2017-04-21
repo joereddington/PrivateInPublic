@@ -3,6 +3,7 @@ function encrypt(input, passcode) {
     return CryptoJS.AES.encrypt(input, passcode).toString();
 }
 
+
 function decrypt(ciphertext, passcode) {
     passcode = passcode || "hardcoded";
     var bytes = CryptoJS.AES.decrypt(ciphertext, passcode);
