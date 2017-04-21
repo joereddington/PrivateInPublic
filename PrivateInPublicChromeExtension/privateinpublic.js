@@ -53,4 +53,10 @@ function changeall(passcode) {
     htmlreplace(document.body, passcode);
 }
 
-changeall()
+ chrome.storage.sync.get({
+    passcode: "changeme"
+  }, function(items) {
+     passcode= items.passcode;
+     changeall(passcode)
+  });
+
