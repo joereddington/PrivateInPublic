@@ -14,9 +14,9 @@ function parse(input, passcode) {
     passcode = passcode || "hardcoded";
     inputArray = input.split(/§|§/);
     for (var i = 1; i < inputArray.length; i += 2) {
-        if (inputArray[i].startsWith("e:")) {
+        if (inputArray[i].indexOf("e:")==0) {
             inputArray[i] = "§d:" + decrypt(inputArray[i].slice(2), passcode) + "§";
-        } else if (inputArray[i].startsWith("d:")) {
+        } else if (inputArray[i].indexOf("d:")==0) {
             inputArray[i] = "§e:" + encrypt(inputArray[i].slice(2), passcode) + "§";
         } else {
 	    inputArray[i] = "§"+inputArray[i]+"§"
