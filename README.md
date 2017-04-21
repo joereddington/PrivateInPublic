@@ -46,5 +46,9 @@ My commands for starting the testing after cloning the repo were:
 # Licence 
 As per file 
 
+The icon used is a Creative Commons BY-SA image from [Straight Street](http://straight-street.com/lic.php)
+
+The aes.js file is provided under [this licence](https://code.google.com/archive/p/crypto-js/wikis/License.wiki) 
+
 # Contributors 
 Lots of helpful people on Facebook - thank you everybody. 
