@@ -3,6 +3,7 @@ function encrypt(input, passcode) {
     return CryptoJS.AES.encrypt(input, passcode).toString();
 }
 
+
 function decrypt(ciphertext, passcode) {
     passcode = passcode || "hardcoded";
     var bytes = CryptoJS.AES.decrypt(ciphertext, passcode);
@@ -12,14 +13,14 @@ function decrypt(ciphertext, passcode) {
 
 function parse(input, passcode) {
     passcode = passcode || "hardcoded";
-    inputArray = input.split(/\[|\]/);
+    inputArray = input.split(/§|§/);
     for (var i = 1; i < inputArray.length; i += 2) {
-        if (inputArray[i].startsWith("e:")) {
-            inputArray[i] = "[d:" + decrypt(inputArray[i].slice(2), passcode) + "]";
-        } else if (inputArray[i].startsWith("d:")) {
-            inputArray[i] = "[e:" + encrypt(inputArray[i].slice(2), passcode) + "]";
+        if (inputArray[i].indexOf("e:")==0) {
+            inputArray[i] = "§d:" + decrypt(inputArray[i].slice(2), passcode) + "§";
+        } else if (inputArray[i].indexOf("d:")==0) {
+            inputArray[i] = "§e:" + encrypt(inputArray[i].slice(2), passcode) + "§";
         } else {
-	    inputArray[i] = "["+inputArray[i]+"]"
+	    inputArray[i] = "§"+inputArray[i]+"§"
         }
     }
     return inputArray.join("")
@@ -52,4 +53,4 @@ function changeall(passcode) {
     htmlreplace(document.body, passcode);
 }
 
-changeall();
+changeall()
