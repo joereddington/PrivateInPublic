@@ -63,6 +63,6 @@ chrome.storage.sync.get({
 
 }
 catch (err) {
-console.log("The chrome storage sync didn't load JR")
+//console.log("The chrome storage sync didn't load JR")
 }
 
